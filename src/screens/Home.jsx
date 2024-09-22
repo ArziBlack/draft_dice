@@ -399,9 +399,9 @@ const Home = ({ navigation }) => {
         <View style={Styles.thumbNailContainer}>
           <Image style={Styles.thumbNail} source={item.postImage} />
         </View>
-        <View>
+        <View style={Styles.textView}>
           <Text style={Styles.title}>{truncate(item.post_title, 25)}</Text>
-          <Text style={Styles.desc}>{truncate(item.desc, 50)}</Text>
+          <Text style={Styles.desc}>{truncate(item.desc, 55)}</Text>
         </View>
       </TouchableOpacity>)
   }
@@ -481,7 +481,7 @@ const Styles = StyleSheet.create({
     color: '#00468B'
   },
   desc: {
-    fontSize: 13,
+    fontSize: 16,
     paddingTop: 5,
     marginLeft: 20,
     marginRight:10,
@@ -491,6 +491,9 @@ const Styles = StyleSheet.create({
   image: {
     width: '100%',
     height: '100%'
+  },
+  textView: {
+    marginRight: 5
   }
 })
 
