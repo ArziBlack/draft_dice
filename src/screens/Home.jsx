@@ -377,7 +377,7 @@ const Home = ({ navigation }) => {
     )
   }
   const seperator = () => {
-    return <View style={{ height: 1, width: '80%', backgroundColor: 'black' }} />
+    return <View style={{ height: 1, width: '80%' }} />
   }
   const renderItems = ({ item }) => {
     function checkConn() {
@@ -385,9 +385,9 @@ const Home = ({ navigation }) => {
         state.isConnected ? setInternet(true) : setInternet(false)
       })
     }
-    function truncate(input){
-      if (input.length > 15) {
-        return input.substring(0, 34) + '...'
+    function truncate(input, number){
+      if (input.length) {
+        return input.substring(0, number) + '...'
       }
       return input;
     }
@@ -400,8 +400,8 @@ const Home = ({ navigation }) => {
           <Image style={Styles.thumbNail} source={item.postImage} />
         </View>
         <View>
-          <Text style={Styles.title}>{truncate(item.post_title)}</Text>
-          <Text style={Styles.desc}>{truncate(item.desc)}</Text>
+          <Text style={Styles.title}>{truncate(item.post_title, 25)}</Text>
+          <Text style={Styles.desc}>{truncate(item.desc, 50)}</Text>
         </View>
       </TouchableOpacity>)
   }
@@ -432,7 +432,7 @@ const Home = ({ navigation }) => {
 
 const Styles = StyleSheet.create({
   container: {
-    backgroundColor: 'grey'
+    backgroundColor: '#E7EBE7'
   },
   listHeader: {
     height: 55,
@@ -448,10 +448,11 @@ const Styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
-    paddingVertical: 13,
     padding: 20,
-    marginBottom: 20,
-    backgroundColor: 'rgba(255, 255, 255, 0.8)',
+    paddingVertical: 13,
+    height: 150,
+    marginBottom: 10,
+    backgroundColor: '#D9D9D9',
     shadowColor: '#000',
     borderRadius: 13,
     shadowOffset: {
@@ -462,7 +463,6 @@ const Styles = StyleSheet.create({
     shadowRadius: 20
   },
   thumbNailContainer: {
-    backgroundColor: '#abcdef',
     borderRadius: 40,
     height: 100,
     width: 100,
@@ -472,23 +472,21 @@ const Styles = StyleSheet.create({
   thumbNail: {
     height: 70,
     width: 70,
-    borderRadius: 8
   },
   title: {
     fontWeight: '600',
-    fontSize: 20,
+    fontSize: 24,
     marginHorizontal: 20,
     paddingRight: 55,
-    color: 'black'
+    color: '#00468B'
   },
   desc: {
     fontSize: 13,
-    opacity: 0.5,
     paddingTop: 5,
     marginLeft: 20,
     marginRight:10,
     paddingRight: 60,
-    color: '#0077fa'
+    color: '#525151'
   },
   image: {
     width: '100%',

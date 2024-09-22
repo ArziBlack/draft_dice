@@ -1,4 +1,3 @@
-import { View, Text } from 'react-native'
 import React, { useState } from 'react'
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -15,8 +14,8 @@ const BottomTabNav = () => {
   return (
     <Tabs.Navigator
             initialRouteName='HomeStack'
-            activeColor='#e91e63'
-            barStyle={{ backgroundColor: 'tomato' }}>
+            activeColor='#00468B'
+            barStyle={{ backgroundColor: '#FFFFFF' }}>
             <Tabs.Screen
                 name='HomeStack'
                 component={HomeStack}

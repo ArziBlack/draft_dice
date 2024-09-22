@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import NetInfo from '@react-native-community/netinfo';
-import {View, StyleSheet, Image, Text} from 'react-native';
+import { View, StyleSheet, Image, Text } from 'react-native';
 
 const Splash = ({ navigation }) => {
   const [isOffline, setIsOffline] = useState(false);
@@ -20,9 +20,7 @@ const Splash = ({ navigation }) => {
   return (
     <View style={style.container}>
       <Image source={require('./assets/logo.png')} style={style.logo} />
-      <Text style={style.logoText}>
-        ENGINEERING GRAPHICS
-      </Text>
+      <Text style={style.logoText}>ENGINEERING GRAPHICS</Text>
     </View>
   );
 };
@@ -46,6 +44,6 @@ const style = StyleSheet.create({
     color: 'white',
     paddingTop: 20,
     fontWeight: '900',
-    fontStyle: 'italic'
+    fontStyle: 'italic',
   },
 });
