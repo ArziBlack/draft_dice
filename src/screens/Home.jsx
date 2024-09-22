@@ -424,7 +424,7 @@ const Home = ({ navigation }) => {
         renderItem={renderItems}
         ItemSeparatorComponent={seperator}
         ListEmptyComponent={<Text>Please wait while loading...</Text>}
-        keyExtractor={data.id}
+        keyExtractor={data.id} 
       />
     </View>
   )
@@ -448,13 +448,13 @@ const Styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
-    padding: 20,
-    paddingVertical: 13,
+    padding: 15,
+    paddingVertical: 10,
     height: 150,
     marginBottom: 10,
     backgroundColor: '#D9D9D9',
     shadowColor: '#000',
-    borderRadius: 13,
+    borderRadius: 5,
     shadowOffset: {
       width: 0,
       height: 10
@@ -463,9 +463,8 @@ const Styles = StyleSheet.create({
     shadowRadius: 20
   },
   thumbNailContainer: {
-    borderRadius: 40,
-    height: 100,
-    width: 100,
+    height: 80,
+    width: 80,
     justifyContent: 'center',
     alignItems: 'center'
   },
