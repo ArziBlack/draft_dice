@@ -6,6 +6,7 @@ import {
   StyleSheet,
   TouchableOpacity,
   Modal,
+  Pressable,
 } from 'react-native';
 import React, {useState} from 'react';
 import {BlurView} from '@react-native-community/blur';
@@ -47,10 +48,18 @@ const Settings = ({navigation}) => {
                 <PaperText>Dark</PaperText>
               </View>
             </RadioButton.Group>
-            <Button
+            <View style={styles.modalViewActionsView}>
+              <Pressable style={({pressed}) => [{backgroundColor: pressed ? 'green' : 'blue'}, styles.modalActionButton]}>
+                <PaperText>Cancel</PaperText>
+              </Pressable>
+              <Pressable style={({pressed}) => [{backgroundColor: pressed ? 'green' : 'blue'}, styles.modalActionButton]}>
+                <PaperText>Ok</PaperText>
+              </Pressable>
+            </View>
+            {/* <Button
               title="Close Modal"
               onPress={() => setModalVisible(!modalVisible)}
-            />
+            /> */}
           </View>
         </View>
       </Modal>
@@ -119,8 +128,18 @@ const styles = StyleSheet.create({
     marginBottom: 15,
     textAlign: 'center',
   },
-  modalViewMode:{
+  modalViewMode: {
     flexDirection: 'row',
-    alignItems: 'center'
+    alignItems: 'center',
+  },
+  modalViewActionsView:{
+    flexDirection: 'row',
+    width: '100%',
+    justifyContent: 'space-between'
+  },
+  modalActionButton:{
+    borderRadius: 25,
+    paddingVertical: 12,
+    paddingHorizontal: 25
   }
 });
