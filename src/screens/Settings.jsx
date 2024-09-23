@@ -9,6 +9,7 @@ import {
 } from 'react-native';
 import React, {useState} from 'react';
 import {BlurView} from '@react-native-community/blur';
+import {RadioButton, Text as PaperText} from 'react-native-paper';
 
 const Settings = ({navigation}) => {
   const url = 'https://www.youtube.com/@engineeringgraphics4978';
@@ -17,6 +18,8 @@ const Settings = ({navigation}) => {
     return <View style={{height: 1, width: '100%', backgroundColor: '#cce'}} />;
   };
 
+  // true mode is light, and false is dark
+  const [mode, setMode] = useState(false);
   const [modalVisible, setModalVisible] = useState(false);
 
   return (
@@ -32,6 +35,18 @@ const Settings = ({navigation}) => {
         <View style={styles.modalContainer}>
           <View style={styles.modalView}>
             <Text style={styles.modalText}>this is a modal</Text>
+            <RadioButton.Group
+              onValueChange={newValue => setMode(newValue)}
+              value={mode}>
+              <View style={styles.modalViewMode}>
+                <RadioButton value={true} />
+                <PaperText>Light</PaperText>
+              </View>
+              <View style={styles.modalViewMode}>
+                <RadioButton value={false} />
+                <PaperText>Dark</PaperText>
+              </View>
+            </RadioButton.Group>
             <Button
               title="Close Modal"
               onPress={() => setModalVisible(!modalVisible)}
@@ -88,8 +103,9 @@ const styles = StyleSheet.create({
   modalView: {
     backgroundColor: 'white',
     borderRadius: 20,
-    padding: 35,
-    alignItems: 'center',
+    padding: 25,
+    width: 320,
+    alignItems: 'flex-start',
     shadowColor: '#000',
     shadowOffset: {
       width: 0,
@@ -103,4 +119,8 @@ const styles = StyleSheet.create({
     marginBottom: 15,
     textAlign: 'center',
   },
+  modalViewMode:{
+    flexDirection: 'row',
+    alignItems: 'center'
+  }
 });
