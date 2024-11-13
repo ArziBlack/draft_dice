@@ -1,6 +1,7 @@
-import { View, Text, Image, FlatList, StyleSheet, TouchableOpacity, Modal, Alert, Pressable } from 'react-native'
+import { View, Text, Image, FlatList, StyleSheet, TouchableOpacity, Modal, Alert, TextInput } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import NetInfo from '@react-native-community/netinfo'
+import Icon from 'react-native-vector-icons/Ionicons'; 
 
 const Home = ({ navigation }) => {
   const [data, setData] = useState([
@@ -373,7 +374,7 @@ const Home = ({ navigation }) => {
   const [internet, setInternet] = useState(false);
   const headerBlock = () => {
     return (
-      <Text style={Styles.headStyle}>Table of Contents</Text>
+      <Text style={Styles.headStyle}>Drafting Guide</Text>
     )
   }
   const seperator = () => {
@@ -413,6 +414,25 @@ const Home = ({ navigation }) => {
   }, [ internet, navigation])
   return (
     <View style={Styles.container}>
+      <View style={Styles.headContainer}>
+      <TouchableOpacity style={Styles.iconContainer}>
+        <Icon name="menu" size={24} color="#00468B" />
+      </TouchableOpacity>
+
+      <View style={Styles.searchBar}>
+        <Icon name="search" size={20} color="#00468B" style={Styles.searchIcon} />
+        <TextInput
+          placeholder="Search..."
+          placeholderTextColor="#888"
+          style={Styles.input}
+        />
+      </View>
+
+      <TouchableOpacity style={Styles.iconContainer}>
+        <Icon name="notifications-outline" size={24} color="#00468B" />
+      </TouchableOpacity>
+    </View>
+
       <FlatList
         ListHeaderComponent={headerBlock}
         ListHeaderComponentStyle={Styles.listHeader}
@@ -434,15 +454,45 @@ const Styles = StyleSheet.create({
   container: {
     backgroundColor: '#E7EBE7'
   },
+  headContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingHorizontal: 10,
+    paddingVertical: 8,
+    backgroundColor: '#E7EBE7',
+    borderBottomWidth: 1,
+    borderBottomColor: '#ddd',
+  },
+  iconContainer: {
+    padding: 8,
+  },
+  searchBar: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: '#FFF',
+    borderRadius: 20,
+    paddingHorizontal: 10,
+    marginHorizontal: 8,
+  },
+  searchIcon: {
+    marginRight: 5,
+  },
+  input: {
+    flex: 1,
+    fontSize: 16,
+    color: '#333',
+  },
   listHeader: {
     height: 55,
     alignItems: 'center',
     justifyContent: 'center'
   },
   headStyle: {
-    color: '#333',
-    fontSize: 27,
-    fontWeight: 'bold'
+    color: '#00468B',
+    fontSize: 30,
+    fontWeight: '800',
+    paddingBottom: 25
   },
   items: {
     flex: 1,

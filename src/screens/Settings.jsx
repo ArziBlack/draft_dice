@@ -16,7 +16,7 @@ const Settings = ({navigation}) => {
   const url = 'https://www.youtube.com/@engineeringgraphics4978';
 
   const Seperator = () => {
-    return <View style={{height: 1, width: '100%', backgroundColor: '#cce'}} />;
+    return <View style={{height: 1, width: '100%', backgroundColor: '#333'}} />;
   };
 
   // true mode is light, and false is dark
@@ -35,7 +35,6 @@ const Settings = ({navigation}) => {
         <BlurView style={styles.absolute} blurType="dark" blurAmount={10} />
         <View style={styles.modalContainer}>
           <View style={styles.modalView}>
-            <Text style={styles.modalText}>this is a modal</Text>
             <RadioButton.Group
               onValueChange={newValue => setMode(newValue)}
               value={mode}>
@@ -49,41 +48,37 @@ const Settings = ({navigation}) => {
               </View>
             </RadioButton.Group>
             <View style={styles.modalViewActionsView}>
-              <Pressable style={({pressed}) => [{backgroundColor: pressed ? 'red' : 'transparent'}, styles.modalActionButton]}>
+              <Pressable style={({pressed}) => [{backgroundColor: pressed ? 'red' : 'transparent'}, styles.modalActionButton]} onPress={() => setModalVisible(false)}>
                 <PaperText style={{color:'#00468B', fontSize:16}}>Cancel</PaperText>
               </Pressable>
-              <Pressable style={({pressed}) => [{backgroundColor: pressed ? 'green' : '#00468B'} , styles.modalActionButton]}>
+              <Pressable style={({pressed}) => [{backgroundColor: pressed ? 'green' : '#00468B'} , styles.modalActionButton]} onPress={() => setModalVisible(false)}>
                 <PaperText style={{color:'#D9D9D9', fontSize:16}}>Ok</PaperText>
               </Pressable>
             </View>
-            {/* <Button
-              title="Close Modal"
-              onPress={() => setModalVisible(!modalVisible)}
-            /> */}
           </View>
         </View>
       </Modal>
       <TouchableOpacity onPress={() => setModalVisible(true)}>
-        <Text style={{color: 'grey', fontSize: 20, marginBottom: 20}}>
+        <Text style={{color: '#000000', fontSize: 22, marginVertical: 20, fontWeight: '700'}}>
           Appearance
         </Text>
       </TouchableOpacity>
       <Seperator />
       <TouchableOpacity onPress={() => navigation.navigate('about')}>
-        <Text style={{color: 'grey', fontSize: 20, marginBottom: 20}}>
+        <Text style={{color: '#000000', fontSize: 22, marginVertical: 20, fontWeight: '700'}}>
           About us
         </Text>
       </TouchableOpacity>
       <Seperator />
-      <View style={{height: 250}}></View>
+      <View style={{height: 450}}></View>
       <Button
         color="red"
         onPress={() => Linking.openURL(url)}
         title="Subscribe to our YOUTUBE Channel"
       />
       <View style={{height: 10}}></View>
-      <Text>Support The Developers by subscribing to our Youtube Channel</Text>
-      <Text>Contact us on : arzidrey@gmail.com</Text>
+      <Text style={{color:'#000'}}>Support The Developers by subscribing to our Youtube Channel</Text>
+      <Text style={{color:'#000'}}>Contact us on : arzidrey@gmail.com</Text>
     </View>
   );
 };
@@ -95,6 +90,8 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#E7EBE7',
     padding: 20,
+    paddingTop: 60,
+    paddingHorizontal: 13
   },
   modalContainer: {
     flex: 1,
