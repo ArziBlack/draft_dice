@@ -1,10 +1,10 @@
 import {createAsyncThunk} from '@reduxjs/toolkit';
 import axios from 'axios';
 
-const BASE_URL = '';
+const BASE_URL = 'https://dice-draft-service.onrender.com/api/v1';
 
 export const get_home_contents = createAsyncThunk(
-  'app/home',
+  'dice/home',
   async (_, thunkAPI) => {
     try {
       const response = await axios.get(`${BASE_URL}/`);
@@ -19,7 +19,7 @@ export const get_home_contents = createAsyncThunk(
 );
 
 export const get_library_contents = createAsyncThunk(
-  'app/library',
+  'dice/library',
   async (_, thunkAPI) => {
     try {
       const response = await axios.get(`${BASE_URL}/`);
@@ -34,7 +34,7 @@ export const get_library_contents = createAsyncThunk(
 );
 
 export const checkSubscriptionStatus = createAsyncThunk(
-  'auth/checkSubscriptionStatus',
+  'dice/checkSubscriptionStatus',
   async ({accessToken, channelId}, {rejectWithValue}) => {
     try {
       const response = await axios.post(`${BASE_URL}/`, {
