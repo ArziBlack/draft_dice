@@ -49,11 +49,11 @@ const Settings = ({navigation}) => {
               </View>
             </RadioButton.Group>
             <View style={styles.modalViewActionsView}>
-              <Pressable style={({pressed}) => [{backgroundColor: pressed ? 'green' : 'blue'}, styles.modalActionButton]}>
-                <PaperText>Cancel</PaperText>
+              <Pressable style={({pressed}) => [{backgroundColor: pressed ? 'red' : 'transparent'}, styles.modalActionButton]}>
+                <PaperText style={{color:'#00468B', fontSize:16}}>Cancel</PaperText>
               </Pressable>
-              <Pressable style={({pressed}) => [{backgroundColor: pressed ? 'green' : 'blue'}, styles.modalActionButton]}>
-                <PaperText>Ok</PaperText>
+              <Pressable style={({pressed}) => [{backgroundColor: pressed ? 'green' : '#00468B'} , styles.modalActionButton]}>
+                <PaperText style={{color:'#D9D9D9', fontSize:16}}>Ok</PaperText>
               </Pressable>
             </View>
             {/* <Button
@@ -135,11 +135,17 @@ const styles = StyleSheet.create({
   modalViewActionsView:{
     flexDirection: 'row',
     width: '100%',
-    justifyContent: 'space-between'
+    justifyContent: 'space-between',
+    paddingTop:30
   },
   modalActionButton:{
-    borderRadius: 25,
+    borderRadius: 5,
     paddingVertical: 12,
-    paddingHorizontal: 25
+    width: 125,
+    alignItems: 'center',
+    fontSize: 16,
+    color: '#00468B',
+    borderColor: '#00468B',
+    borderWidth: 1
   }
 });
